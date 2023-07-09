@@ -19,3 +19,5 @@ spec:
         image: jewetest.jfrog.io/docker/ultimate-cicd-pipeline:v1
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+      - name: cmVmdGtuOjAxOjE3MjAzOTA1NjM6MXRQVzlwRjc4YUZZVDgwQUFqeVB6djRmS2li
