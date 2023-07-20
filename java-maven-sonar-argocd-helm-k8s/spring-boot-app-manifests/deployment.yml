@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: jewetest.jfrog.io/docker/ultimate-cicd-pipeline:v1
+        #image: jewetest.jfrog.io/docker/ultimate-cicd-pipeline:v1
+        image: alpine:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
