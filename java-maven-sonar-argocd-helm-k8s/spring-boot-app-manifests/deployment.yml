@@ -17,8 +17,8 @@ spec:
       containers:
       - name: spring-boot-app
         #image: jewetest.jfrog.io/docker/ultimate-cicd-pipeline:v1
-        image: alpine:latest
+        image: 592931362264.dkr.ecr.ap-southeast-1.amazonaws.com/ula-dev-eks-workshop
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-      - name: regcred
+      #imagePullSecrets:
+      #- name: regcred
