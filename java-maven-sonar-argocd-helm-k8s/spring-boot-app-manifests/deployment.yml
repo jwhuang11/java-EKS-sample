@@ -4,8 +4,6 @@ metadata:
   name: spring-boot-app 
   labels:
     app: spring-boot-app
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
   annotations:
     # https://argocd-image-updater.readthedocs.io/en/stable/configuration/images/#available-annotations
     argocd-image-updater.argoproj.io/image-list: app-version=592931362264.dkr.ecr.ap-southeast-1.amazonaws.com/ula-dev-eks-workshop
