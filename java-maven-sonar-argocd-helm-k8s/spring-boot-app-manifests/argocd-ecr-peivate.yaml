@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    # https://argocd-image-updater.readthedocs.io/en/stable/configuration/images/#available-annotations
+    argocd-image-updater.argoproj.io/image-list: app-version=592931362264.dkr.ecr.ap-southeast-1.amazonaws.com/ula-dev-eks-workshop
+    argocd-image-updater.argoproj.io/app-version.pull-secret: secret:argocd/aws-ecr-creds#creds
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/jwhuang11/java-EKS-sample.git
+    targetRevision: HEAD
+    path: java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: my-app
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
